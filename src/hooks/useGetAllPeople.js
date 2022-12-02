@@ -28,6 +28,6 @@ export function useGetAllPeople () {
     }`;
 
   const { loading, error, data } = useQuery(GET_ALL_PEOPLE)
-
+    console.log(loading)
   return { loading, error, data };
 }
