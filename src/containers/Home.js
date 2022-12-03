@@ -1,17 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./styles/Home.css";
-import { useGetAllPeople } from "../hooks/useGetAllPeople";
-import { v4 as uuidv4 } from 'uuid';
+import { People } from "../components/people"
 
 export const Home = () => {
-  const { loading, error, data } = useGetAllPeople();
-  const [people, setPeople] = useState();
-  useEffect(() => {
-    if (data) {
-      const tabla = data?.allPeople?.people;
-      setPeople(tabla);
-    }
-  }, [data]);
+  const [loading, setLoading] = useState(false)
 
   return (
     <>
@@ -19,7 +11,7 @@ export const Home = () => {
         <span className="home-header-title">Ravn Star Wars Registry</span>
       </div>
       <div style={{ color: "black" }}>
-        {loading ? "Cargando" : people?.map(item => <div key={uuidv4()}>{item.name}</div>)}
+        {loading ? "Cargando" : <People />}
       </div>
     </>
   );
