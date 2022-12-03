@@ -12,7 +12,7 @@ export const Home = () => {
       setPeople(tabla);
     }
   }, [data]);
-  console.log(people);
+
   return (
     <>
       <div className="home-header">
